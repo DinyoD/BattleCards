@@ -13,6 +13,8 @@ namespace BasicWebApp.Data.Models
         public ApplicationUser()
         {
             this.Id = Guid.NewGuid().ToString();
+            this.UsersCards = new HashSet<UserCard>();
+
             this.Roles = new HashSet<IdentityUserRole<string>>();
             this.Claims = new HashSet<IdentityUserClaim<string>>();
             this.Logins = new HashSet<IdentityUserLogin<string>>();
@@ -27,6 +29,8 @@ namespace BasicWebApp.Data.Models
         public bool IsDeleted { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public ICollection<UserCard> UsersCards { get; set; }
 
         public virtual ICollection<IdentityUserRole<string>> Roles { get; set; }
 

@@ -44,4 +44,8 @@
     <ProjectReference Include="..\BasicWebApp.Data.Models\BasicWebApp.Data.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

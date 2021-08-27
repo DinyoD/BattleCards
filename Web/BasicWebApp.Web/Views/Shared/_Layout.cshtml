@@ -53,7 +53,6 @@
                         <a class="nav-link text-white active h5" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                     </li>
 
-                    <partial name="_LoginPartial" />
                     @if (this.SignInManager.IsSignedIn(this.User))
                     {
 
@@ -65,6 +64,7 @@
                         </li>
                     }
 
+                    <partial name="_LoginPartial" />
                 </ul>
             </div>
         </nav>
