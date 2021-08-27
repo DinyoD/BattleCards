@@ -21,6 +21,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\Data\BasicWebApp.Data.Common\BasicWebApp.Data.Common.csproj" />
     <ProjectReference Include="..\..\Data\BasicWebApp.Data.Models\BasicWebApp.Data.Models.csproj" />
+    <ProjectReference Include="..\..\Web\BasicWebApp.Web.ViewModels\BasicWebApp.Web.ViewModels.csproj" />
     <ProjectReference Include="..\BasicWebApp.Services.Mapping\BasicWebApp.Services.Mapping.csproj" />
   </ItemGroup>
 

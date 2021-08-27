@@ -1,0 +1,74 @@
+﻿@using BasicWebApp.Web.ViewModels.Cards
+@model CardsInputModel
+
+<h1 class="text-center mt-2">Create Card</h1>
+<div class="row mt-4 mb-4">
+    <div id="card" class="card col-6 col-lg-3 game-card h-100 m-auto">
+        <img id="card-image"
+             src="@Model?.ImageUrl"
+             class="card-img-top img-fluid card-image">
+        <div class="card-body">
+            <h5 class="card-title text-center" data-toggle="tooltip" data-placement="bottom"
+                title="Description:<br>Placeholder.">
+                @Model?.Description
+            </h5>
+            <ul class="list-group list-group-flush">
+                <li id="card-keyword" class="list-group-item text-center">@Model?.Keyword</li>
+                <li class="list-group-item">
+                    <span class="attack-stat">@Model?.Attack</span><span id="card-health" class="health-stat">@Model?.Health</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <form class="col-6 col-lg-9" method="post">
+
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Name">Name</label>
+            <input type="text" class="form-control" asp-for="@Model.Name">
+            <span asp-validation-for="@Model.Name" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.ImageUrl">Image URL</label>
+            <input type="text" class="form-control" asp-for="@Model.ImageUrl">
+            <span asp-validation-for="@Model.ImageUrl" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Keyword">Keyword</label>
+            <select class="form-control" asp-for="@Model.Keyword">
+                <option value="Tough">Tough</option>
+                <option value="Challenger">Challenger</option>
+                <option value="Elusive">Elusive</option>
+                <option value="Overwhelm">Overwhelm</option>
+                <option value="Lifesteal">Lifesteal</option>
+                <option value="Ephemeral">Ephemeral</option>
+                <option value="Fearsome">Fearsome</option>
+            </select>
+            <span asp-validation-for="@Model.Keyword" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Attack">Attack</label>
+            <input type="number" class="form-control" asp-for="@Model.Attack">
+            <span asp-validation-for="@Model.Attack" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Health">Health</label>
+            <input type="number" class="form-control" asp-for="@Model.Health">
+            <span asp-validation-for="@Model.Health" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="@Model.Description">Description</label>
+            <textarea class="form-control" asp-for="@Model.Description"></textarea>
+            <span asp-validation-for="@Model.Description" class="text-danger"></span>
+        </div>
+
+        <button type="submit" class="btn btn-block btn-primary">Create</button>
+    </form>
+</div>
+

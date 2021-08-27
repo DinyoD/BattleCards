@@ -1,16 +1,30 @@
 ﻿namespace BasicWebApp.Web.Controllers
 {
     using System.Diagnostics;
-
+    using BasicWebApp.Data.Models;
     using BasicWebApp.Web.ViewModels;
-
+    using Microsoft.AspNetCore.Identity;
     using Microsoft.AspNetCore.Mvc;
 
     public class HomeController : BaseController
     {
+        private readonly SignInManager<ApplicationUser> signInManager;
+
+        public HomeController(SignInManager<ApplicationUser> signInManager)
+        {
+            this.signInManager = signInManager;
+        }
+
         public IActionResult Index()
         {
-            return this.View();
+            if (this.signInManager.IsSignedIn(this.User))
+            {
+                return this.Redirect("/Cards/All");
+            }
+            else
+            {
+                return this.View();
+            }
         }
 
         public IActionResult Privacy()

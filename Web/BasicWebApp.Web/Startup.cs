@@ -8,6 +8,7 @@
     using BasicWebApp.Data.Models;
     using BasicWebApp.Data.Repositories;
     using BasicWebApp.Data.Seeding;
+    using BasicWebApp.Services.Data;
     using BasicWebApp.Services.Mapping;
     using BasicWebApp.Services.Messaging;
     using BasicWebApp.Web.ViewModels;
@@ -63,6 +64,8 @@
 
             // Application services
             services.AddTransient<IEmailSender, NullMessageSender>();
+            services.AddTransient<ICardsService, CardsService>();
+            services.AddTransient<IUserCardsService, UserCardsService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
